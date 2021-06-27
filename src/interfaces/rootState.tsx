@@ -1,4 +1,4 @@
-import { PokemonListState } from './pokemonState';
+import {PokemonListState} from './pokemonState';
 
 export interface RootState {
   pokemonList: PokemonListState;

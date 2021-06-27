@@ -1,6 +1,6 @@
-import { Pokemon } from './pokemonResponse';
+import {Pokemon} from './pokemonResponse';
 
 export interface PokemonListState {
   pokemonList: Pokemon[];
-  nextPageUrl: string,
+  nextPageUrl: string;
 }

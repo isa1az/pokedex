@@ -1,6 +1,13 @@
 import React from 'react';
 import {Pokemon} from '../interfaces/pokemonResponse';
-import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Dimensions,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
@@ -15,14 +22,13 @@ const PokemonListItem = ({pokemon}: Props) => {
   return (
     <TouchableOpacity
       activeOpacity={0.9}
-      onPress={() => navigation.navigate('PokemonDetailScreen', {pokemon, color: 'white'})}
-    >
+      onPress={() =>
+        navigation.navigate('PokemonDetailScreen', {pokemon, color: 'white'})
+      }>
       <View style={[styles.itemContainer, {width: windowWidth * 0.275}]}>
         <Image source={{uri: pokemon.picture}} style={styles.pokemonImage} />
 
-        <Text style={styles.name}>
-          {pokemon.name}
-        </Text>
+        <Text style={styles.name}>{pokemon.name}</Text>
       </View>
     </TouchableOpacity>
   );
