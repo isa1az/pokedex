@@ -1,15 +1,11 @@
 import { ReducerAction } from '../interfaces/reducerAction';
 import { PokemonListAction } from '../types/pokemonListActionType';
-import { ApiConfig } from '../constants/apiConfig';
-
-interface PokemonListState {
-  pokemonList: any[]; // TODO Replace by pokemon
-  nextPageUrl: string,
-}
+import { ApiConfig } from '../api/apiConfig';
+import { PokemonListState } from '../interfaces/pokemonState';
 
 const initialState: PokemonListState = {
   pokemonList: [],
-  nextPageUrl: `${ApiConfig.apiUrl}/pokemon?limit=40`,
+  nextPageUrl: `${ApiConfig.apiUrl}/pokemon?limit=6`,
 };
 
 export const pokemonListReducer = (state = initialState, action: ReducerAction<PokemonListState>) => {

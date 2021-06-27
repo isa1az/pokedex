@@ -1,3 +1,5 @@
+import { PokemonListState } from './pokemonState';
+
 export interface RootState {
-  pokemonList: any[];
+  pokemonList: PokemonListState;
 }

@@ -1,3 +1,3 @@
 export const PokemonListAction = {
-  loadPokemonList: '[Load] pokemon list'
+  loadPokemonList: '[Load] more pokemon list'
 };
