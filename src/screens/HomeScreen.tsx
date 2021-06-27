@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ActivityIndicator, FlatList, View } from 'react-native';
+import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native';
 import { loadPokemonList } from '../actions/pokemonList';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../interfaces/rootState';
@@ -19,12 +19,13 @@ export const HomeScreen = () => {
   }, []);
 
   return (
-    <View style={{alignItems: 'center'}}>
+    <View style={styles.pokemonListContainer}>
       <FlatList
+        style={styles.pokemonList}
         data={pokemonList}
         keyExtractor={pokemon => pokemon.id}
         showsVerticalScrollIndicator={false}
-        numColumns={2}
+        numColumns={3}
         renderItem={({item}) => <PokemonListItem pokemon={item}/>}
         // onEndReached={loadPokemons}
         onEndReachedThreshold={0.4}
@@ -35,3 +36,12 @@ export const HomeScreen = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  pokemonListContainer: {
+    alignItems: 'center',
+  },
+  pokemonList: {
+    marginTop: 20,
+  },
+});

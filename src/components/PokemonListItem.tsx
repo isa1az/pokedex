@@ -1,13 +1,6 @@
 import React from 'react';
 import {Pokemon} from '../interfaces/pokemonResponse';
-import {
-  Dimensions,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
@@ -22,8 +15,9 @@ const PokemonListItem = ({pokemon}: Props) => {
   return (
     <TouchableOpacity
       activeOpacity={0.9}
-      onPress={() => navigation.navigate('PokemonDetailScreen', {pokemon, color: 'white'})}>
-      <View style={{...styles.cardContainer, width: windowWidth * 0.4,}}>
+      onPress={() => navigation.navigate('PokemonDetailScreen', {pokemon, color: 'white'})}
+    >
+      <View style={[styles.itemContainer, {width: windowWidth * 0.275}]}>
         <Image source={{uri: pokemon.picture}} style={styles.pokemonImage} />
 
         <Text style={styles.name}>
@@ -35,33 +29,21 @@ const PokemonListItem = ({pokemon}: Props) => {
 };
 
 const styles = StyleSheet.create({
-  cardContainer: {
+  itemContainer: {
     backgroundColor: 'white',
     marginHorizontal: 10,
-    height: 120,
-    width: 160,
+    height: 100,
+    width: 120,
     marginBottom: 25,
-    borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   name: {
     textTransform: 'capitalize',
-    color: 'black',
-    fontSize: 20,
-    fontWeight: 'bold',
-    top: 20,
-    left: 10,
   },
   pokemonImage: {
-    width: 100,
-    height: 100
+    width: 70,
+    height: 70,
   },
 });
 
