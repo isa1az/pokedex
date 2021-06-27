@@ -5,8 +5,12 @@ import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../interfaces/rootState';
 import {Pokemon} from '../interfaces/pokemonResponse';
 import PokemonListItem from '../components/PokemonListItem';
+import {PokedexStackParams} from '../navigation/PokedexStack';
+import {StackScreenProps} from '@react-navigation/stack';
 
-export const HomeScreen = () => {
+interface Props extends StackScreenProps<PokedexStackParams, 'HomeScreen'> {}
+
+const HomeScreen = (props: Props) => {
   const dispatch = useDispatch();
   const pokemonList = useSelector<RootState, Pokemon[]>(
     ({pokemonList: state}) => state.pokemonList,
@@ -16,6 +20,21 @@ export const HomeScreen = () => {
 
   useEffect(() => {
     loadPokemons();
+  }, []);
+
+  // TODO Remove this
+  useEffect(() => {
+    setTimeout(
+      () =>
+        props.navigation.navigate('PokemonDetailScreen', {
+          pokemon: {
+            id: 5,
+            name: 'charmeleon',
+            picture:
+              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png',
+          }}),
+      200,
+    );
   }, []);
 
   return (
@@ -52,3 +71,5 @@ const styles = StyleSheet.create({
     height: 100,
   },
 });
+
+export default HomeScreen;

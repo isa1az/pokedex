@@ -22,9 +22,7 @@ const PokemonListItem = ({pokemon}: Props) => {
   return (
     <TouchableOpacity
       activeOpacity={0.9}
-      onPress={() =>
-        navigation.navigate('PokemonDetailScreen', {pokemon, color: 'white'})
-      }>
+      onPress={() => navigation.navigate('PokemonDetailScreen', {pokemon})}>
       <View style={[styles.itemContainer, {width: windowWidth * 0.275}]}>
         <Image source={{uri: pokemon.picture}} style={styles.pokemonImage} />
 

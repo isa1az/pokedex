@@ -1,10 +1,13 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {HomeScreen} from '../screens/HomeScreen';
 import {Image, StyleSheet} from 'react-native';
+import HomeScreen from '../screens/HomeScreen';
+import PokemonDetailScreen from '../screens/PokemonDetailScreen';
+import {Pokemon} from '../interfaces/pokemonResponse';
 
 export type PokedexStackParams = {
   HomeScreen: undefined;
+  PokemonDetailScreen: {pokemon: Pokemon};
 };
 
 const Stack = createStackNavigator<PokedexStackParams>();
@@ -27,6 +30,11 @@ export const PokedexStack = () => {
       <Stack.Screen
         name="HomeScreen"
         component={HomeScreen}
+        options={getHeaderOptions}
+      />
+      <Stack.Screen
+        name="PokemonDetailScreen"
+        component={PokemonDetailScreen}
         options={getHeaderOptions}
       />
     </Stack.Navigator>

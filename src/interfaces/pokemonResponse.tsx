@@ -18,6 +18,7 @@ export interface Pokemon {
 }
 
 export interface PokemonFull {
+  pokemonNumberText: string;
   abilities: Ability[];
   base_experience: number;
   forms: Species[];
