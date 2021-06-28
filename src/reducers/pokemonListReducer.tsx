@@ -1,11 +1,11 @@
 import {ReducerAction} from '../interfaces/reducerAction';
 import {PokemonListAction} from '../types/pokemonListActionType';
-import {ApiConfig} from '../api/apiConfig';
+import {AppConfig} from '../../appConfig';
 import {PokemonListState} from '../interfaces/pokemonState';
 
 const initialState: PokemonListState = {
   pokemonList: [],
-  nextPageUrl: `${ApiConfig.apiUrl}/pokemon?limit=50`,
+  nextPageUrl: `${AppConfig.apiUrl}/pokemon?limit=50`,
 };
 
 export const pokemonListReducer = (

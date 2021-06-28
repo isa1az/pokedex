@@ -2,7 +2,7 @@ import {useState, useEffect, useCallback} from 'react';
 import {PokemonFull} from '../interfaces/pokemonResponse';
 import {pokemonApi} from '../api/api';
 import {parsePokemonNumber} from '../utils/utils';
-import {ApiConfig} from '../api/apiConfig';
+import {AppConfig} from '../../appConfig';
 
 export const usePokemon = (id: string) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -10,7 +10,7 @@ export const usePokemon = (id: string) => {
 
   const loadPokemon = useCallback(async () => {
     const resp = await pokemonApi.get<PokemonFull>(
-      `${ApiConfig.apiUrl}/pokemon/${id}`,
+      `${AppConfig.apiUrl}/pokemon/${id}`,
     );
     setPokemon(mapPokemon(resp.data));
     setIsLoading(false);

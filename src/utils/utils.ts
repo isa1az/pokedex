@@ -1,5 +1,16 @@
 import {FlavorTextEntry} from '../interfaces/pokemonSpecies';
-import {Stat} from '../interfaces/pokemonResponse';
+import {Pokemon, Result, Stat} from '../interfaces/pokemonResponse';
+
+export function mapPokemonList(pokemonResults: Result[]): Pokemon[] {
+  return pokemonResults.map(({name, url}) => {
+    const urlParts = url.split('/');
+    const id = urlParts[urlParts.length - 2];
+    const picture = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+    // const picture = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+
+    return {id, name, picture};
+  });
+}
 
 export function parsePokemonNumber(pokemonNumber: number): string {
   return pokemonNumber.toString().padStart(3, '0');

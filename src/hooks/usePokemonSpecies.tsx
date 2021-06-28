@@ -1,7 +1,7 @@
 import {useState, useEffect, useCallback} from 'react';
 import {pokemonApi} from '../api/api';
 import {PokemonSpecies} from '../interfaces/pokemonSpecies';
-import {ApiConfig} from '../api/apiConfig';
+import {AppConfig} from '../../appConfig';
 import {parsePokemonDescription} from '../utils/utils';
 
 export const usePokemonSpecies = (id: string) => {
@@ -14,7 +14,7 @@ export const usePokemonSpecies = (id: string) => {
     setIsLoading(true);
 
     const resp = await pokemonApi.get<PokemonSpecies>(
-      `${ApiConfig.apiUrl}/pokemon-species/${id}`,
+      `${AppConfig.apiUrl}/pokemon-species/${id}`,
     );
 
     setPokemonSpecies({

@@ -1,31 +1,55 @@
 import {PokemonListAction} from '../types/pokemonListActionType';
 import {Dispatch} from 'redux';
 import {pokemonApi} from '../api/api';
-import {PokemonResponse, Result} from '../interfaces/pokemonResponse';
+import {Pokemon, PokemonResponse} from '../interfaces/pokemonResponse';
 import {RootState} from '../interfaces/rootState';
-
-const mapPokemonList = (pokemonResults: Result[]) =>
-  pokemonResults.map(({name, url}) => {
-    const urlParts = url.split('/');
-    const id = urlParts[urlParts.length - 2];
-    // const picture = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
-    const picture = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
-
-    return {id, name, picture};
-  });
+import {mapPokemonList} from '../utils/utils';
+import {FuseAction} from '../types/searchType';
+import {ReducerAction} from '../interfaces/reducerAction';
+import {AppConfig} from '../../appConfig';
+import Fuse from 'fuse.js';
+import {PokemonListState} from '../interfaces/pokemonState';
 
 export const loadPokemonList = () => {
   return async (dispatch: Dispatch, getState: () => RootState) => {
     const {pokemonList: state} = getState();
-    const {data} = await pokemonApi.get<PokemonResponse>(state.nextPageUrl);
+    const {data} = await pokemonApi.get<PokemonResponse>(state.nextPageUrl!);
     const newPokemonList = mapPokemonList(data.results);
 
+    dispatch(
+      updatePokemonList([...state.pokemonList, ...newPokemonList], data.next),
+    );
+  };
+};
+
+export const createFuseInstance = () => {
+  return async (dispatch: Dispatch) => {
+    console.log('createFuseInstance');
+
+    const {data} = await pokemonApi.get<PokemonResponse>(
+      `${AppConfig.apiUrl}/pokemon?limit=50`,
+    );
+    const pokemonList = mapPokemonList(data.results);
+
     dispatch({
-      type: PokemonListAction.loadPokemonList,
+      type: FuseAction.createFuse,
       payload: {
-        pokemonList: [...state.pokemonList, ...newPokemonList],
-        nextPageUrl: data.next,
+        fuse: new Fuse<Pokemon>(pokemonList, AppConfig.fuseOptions),
+        isLoaded: true,
       },
     });
+  };
+};
+
+const updatePokemonList = (
+  pokemonList: Pokemon[],
+  nextPageUrl?: string,
+): ReducerAction<PokemonListState> => {
+  return {
+    type: PokemonListAction.loadPokemonList,
+    payload: {
+      pokemonList,
+      nextPageUrl,
+    },
   };
 };
