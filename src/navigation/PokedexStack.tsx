@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
 import PokemonDetailScreen from '../screens/PokemonDetailScreen';
 import {Pokemon} from '../interfaces/pokemonResponse';

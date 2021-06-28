@@ -1,26 +1,24 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {ActivityIndicator, FlatList, StyleSheet, View} from 'react-native';
 import {loadPokemonList} from '../actions/pokemonList';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../interfaces/rootState';
 import {Pokemon} from '../interfaces/pokemonResponse';
 import PokemonListItem from '../components/PokemonListItem';
-import {PokedexStackParams} from '../navigation/PokedexStack';
-import {StackScreenProps} from '@react-navigation/stack';
 
-interface Props extends StackScreenProps<PokedexStackParams, 'HomeScreen'> {}
-
-const HomeScreen = (props: Props) => {
+const HomeScreen = () => {
   const dispatch = useDispatch();
   const pokemonList = useSelector<RootState, Pokemon[]>(
     ({pokemonList: state}) => state.pokemonList,
   );
 
-  const loadPokemons = () => dispatch(loadPokemonList());
+  const loadPokemons = useCallback(() => {
+    dispatch(loadPokemonList());
+  }, [dispatch]);
 
   useEffect(() => {
     loadPokemons();
-  }, []);
+  }, [loadPokemons]);
 
   return (
     <View style={styles.pokemonListContainer}>

@@ -12,7 +12,7 @@ interface Props
 const PokemonDetailScreen = ({route}: Props) => {
   const {id, name, picture} = route.params.pokemon;
   const {pokemon, isLoading} = usePokemon(id);
-  const {pokemonSpecies, isLoading: isLoadingSpecies} = usePokemonSpecies(id);
+  const {pokemonSpecies} = usePokemonSpecies(id);
 
   return (
     <View style={styles.container}>

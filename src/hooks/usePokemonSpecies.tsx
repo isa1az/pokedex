@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import {pokemonApi} from '../api/api';
 import {PokemonSpecies} from '../interfaces/pokemonSpecies';
 import {ApiConfig} from '../api/apiConfig';
@@ -10,7 +10,7 @@ export const usePokemonSpecies = (id: string) => {
     {} as PokemonSpecies,
   );
 
-  const loadPokemonSpecies = async () => {
+  const loadPokemonSpecies = useCallback(async () => {
     setIsLoading(true);
 
     const resp = await pokemonApi.get<PokemonSpecies>(
@@ -23,11 +23,11 @@ export const usePokemonSpecies = (id: string) => {
     });
 
     setIsLoading(false);
-  };
+  }, [id]);
 
   useEffect(() => {
     loadPokemonSpecies();
-  }, []);
+  }, [loadPokemonSpecies]);
 
   return {
     isLoading,

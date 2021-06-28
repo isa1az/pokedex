@@ -9,7 +9,7 @@ interface Props {
   isLoading: boolean;
 }
 
-const PokemonStatistics = ({pokemon: {stats}, isLoading}: Props) => {
+const PokemonStatistics = ({pokemon: {stats}}: Props) => {
   const maxStat = getMaxStat(stats);
 
   return (
