@@ -22,21 +22,6 @@ const HomeScreen = (props: Props) => {
     loadPokemons();
   }, []);
 
-  // TODO Remove this
-  useEffect(() => {
-    setTimeout(
-      () =>
-        props.navigation.navigate('PokemonDetailScreen', {
-          pokemon: {
-            id: 5,
-            name: 'charmeleon',
-            picture:
-              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png',
-          }}),
-      200,
-    );
-  }, []);
-
   return (
     <View style={styles.pokemonListContainer}>
       <FlatList

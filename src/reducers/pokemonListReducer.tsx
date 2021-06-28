@@ -5,7 +5,7 @@ import {PokemonListState} from '../interfaces/pokemonState';
 
 const initialState: PokemonListState = {
   pokemonList: [],
-  nextPageUrl: `${ApiConfig.apiUrl}/pokemon?limit=6`,
+  nextPageUrl: `${ApiConfig.apiUrl}/pokemon?limit=30`,
 };
 
 export const pokemonListReducer = (
