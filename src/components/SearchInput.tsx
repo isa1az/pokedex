@@ -27,10 +27,7 @@ export const SearchInput = ({style, onSearch, disabled = false}: Props) => {
       <View style={styles.textBackground}>
         <TextInput
           placeholder="Buscar pokémon"
-          style={{
-            ...styles.textInput,
-            top: Platform.OS === 'ios' ? 0 : 2,
-          }}
+          style={styles.textInput}
           autoCapitalize="none"
           autoCorrect={false}
           value={textValue}
@@ -71,5 +68,6 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     fontSize: 18,
+    top: Platform.OS === 'ios' ? 0 : 2,
   },
 });
