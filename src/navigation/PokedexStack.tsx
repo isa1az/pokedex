@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
 import PokemonDetailScreen from '../screens/PokemonDetailScreen';
 import {Pokemon} from '../interfaces/pokemonResponse';
@@ -22,6 +22,9 @@ export const PokedexStack = () => {
         />
       ),
       headerStyle: styles.headerBackground,
+      headerBackTitle: 'Back',
+      headerBackTitleStyle: styles.headerBackTitle,
+      headerTintColor: 'white',
     };
   };
 
@@ -43,11 +46,14 @@ export const PokedexStack = () => {
 
 const styles = StyleSheet.create({
   headerImage: {
-    width: 125,
-    height: 46,
+    width: 93.75,
+    height: 34.5,
     alignSelf: 'center',
   },
   headerBackground: {
     backgroundColor: '#CC0000',
+  },
+  headerBackTitle: {
+    color: 'white',
   },
 });
