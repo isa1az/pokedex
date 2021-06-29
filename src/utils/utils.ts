@@ -2,6 +2,11 @@ import {FlavorTextEntry} from '../interfaces/pokemonSpecies';
 import {Pokemon, Result, Stat} from '../interfaces/pokemonResponse';
 
 export function mapPokemonList(pokemonResults: Result[]): Pokemon[] {
+  // Validate null and undefined values
+  if (!pokemonResults) {
+    pokemonResults = [];
+  }
+
   return pokemonResults.map(({name, url}) => {
     const urlParts = url.split('/');
     const id = urlParts[urlParts.length - 2];
@@ -13,7 +18,7 @@ export function mapPokemonList(pokemonResults: Result[]): Pokemon[] {
 }
 
 export function parsePokemonNumber(pokemonNumber: number): string {
-  return pokemonNumber.toString().padStart(3, '0');
+  return pokemonNumber <= 0 ? '000' : pokemonNumber.toString().padStart(3, '0');
 }
 
 export function parsePokemonDescription(

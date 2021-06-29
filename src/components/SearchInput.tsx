@@ -26,7 +26,7 @@ export const SearchInput = ({style, onSearch, disabled = false}: Props) => {
       }}>
       <View style={styles.textBackground}>
         <TextInput
-          placeholder="Buscar pokémon"
+          placeholder="Search"
           style={styles.textInput}
           autoCapitalize="none"
           autoCorrect={false}

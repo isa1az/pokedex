@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PokemonDetailScreen /> should match snapshot 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#F3F1F3",
+        "borderRadius": 50,
+        "elevation": 5,
+        "flexDirection": "row",
+        "height": 40,
+        "justifyContent": "center",
+        "paddingHorizontal": 20,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.25,
+        "shadowRadius": 3.84,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      autoCorrect={false}
+      collapsable={false}
+      editable={true}
+      onChangeText={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      placeholder="Search"
+      rejectResponderTermination={true}
+      selectTextOnFocus={true}
+      style={
+        Object {
+          "flex": 1,
+          "fontSize": 18,
+          "top": 0,
+        }
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+    <Text />
+  </View>
+</View>
+`;
+
+exports[`<PokemonDetailScreen /> should trigger onSearch function after debounce 1`] = `
+<View
+  style={Object {}}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#F3F1F3",
+        "borderRadius": 50,
+        "elevation": 5,
+        "flexDirection": "row",
+        "height": 40,
+        "justifyContent": "center",
+        "paddingHorizontal": 20,
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.25,
+        "shadowRadius": 3.84,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      autoCorrect={false}
+      collapsable={false}
+      editable={true}
+      onChangeText={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      placeholder="Search"
+      rejectResponderTermination={true}
+      selectTextOnFocus={true}
+      style={
+        Object {
+          "flex": 1,
+          "fontSize": 18,
+          "top": 0,
+        }
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+    <Text />
+  </View>
+</View>
+`;

@@ -11,7 +11,7 @@ export interface Result {
 }
 
 export interface Pokemon {
-  id: string;
+  id: number;
   name: string;
   picture: string;
   color?: string;

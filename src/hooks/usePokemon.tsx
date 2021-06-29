@@ -4,7 +4,7 @@ import {pokemonApi} from '../api/api';
 import {parsePokemonNumber} from '../utils/utils';
 import {AppConfig} from '../../appConfig';
 
-export const usePokemon = (id: string) => {
+export const usePokemon = (id: number) => {
   const [isLoading, setIsLoading] = useState(true);
   const [pokemon, setPokemon] = useState<PokemonFull>({} as PokemonFull);
 

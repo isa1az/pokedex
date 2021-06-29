@@ -4,7 +4,7 @@ import {PokemonSpecies} from '../interfaces/pokemonSpecies';
 import {AppConfig} from '../../appConfig';
 import {parsePokemonDescription} from '../utils/utils';
 
-export const usePokemonSpecies = (id: string) => {
+export const usePokemonSpecies = (id: number) => {
   const [isLoading, setIsLoading] = useState(true);
   const [pokemonSpecies, setPokemonSpecies] = useState<PokemonSpecies>(
     {} as PokemonSpecies,
