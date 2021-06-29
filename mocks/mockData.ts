@@ -30,31 +30,31 @@ export const pokemonResponseMock: PokemonResponse = {
 
 export const pokemonListMock: Pokemon[] = [
   {
-    id: '1',
+    id: 1,
     name: 'bulbasaur',
     picture:
       'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
   },
   {
-    id: '2',
+    id: 2,
     name: 'ivysaur',
     picture:
       'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png',
   },
   {
-    id: '3',
+    id: 3,
     name: 'venusaur',
     picture:
       'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png',
   },
   {
-    id: '4',
+    id: 4,
     name: 'charmander',
     picture:
       'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png',
   },
   {
-    id: '5',
+    id: 5,
     name: 'charmeleon',
     picture:
       'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png',

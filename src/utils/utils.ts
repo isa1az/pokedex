@@ -9,7 +9,7 @@ export function mapPokemonList(pokemonResults: Result[]): Pokemon[] {
 
   return pokemonResults.map(({name, url}) => {
     const urlParts = url.split('/');
-    const id = urlParts[urlParts.length - 2];
+    const id = +urlParts[urlParts.length - 2];
     const picture = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
     // const picture = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 

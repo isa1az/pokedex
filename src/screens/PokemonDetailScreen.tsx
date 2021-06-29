@@ -17,7 +17,9 @@ const PokemonDetailScreen = ({route}: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.detailContainer}>
-        <Image source={{uri: picture}} style={styles.pokemonPicture} />
+        <View style={styles.pictureContainer}>
+          <Image source={{uri: picture}} style={styles.pokemonPicture} />
+        </View>
         <View style={styles.descriptionContainer}>
           <Text>#{pokemon.pokemonNumberText}</Text>
           <Text style={styles.pokemonName}>{name}</Text>
@@ -50,10 +52,16 @@ const styles = StyleSheet.create({
   descriptionContainer: {
     flex: 7,
   },
-  pokemonPicture: {
+  pictureContainer: {
     width: 100,
     height: 100,
     flex: 5,
+    alignItems: 'flex-end',
+  },
+  pokemonPicture: {
+    width: 100,
+    height: 100,
+    right: 20,
   },
   pokemonName: {
     textTransform: 'capitalize',

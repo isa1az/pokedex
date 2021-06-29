@@ -13,7 +13,7 @@ import PokemonListItem from '../components/PokemonListItem';
 import {SearchInput} from '../components/SearchInput';
 import {Pokemon} from '../interfaces/pokemonResponse';
 
-const screenWidth = Dimensions.get('window').width;
+const {width: screenWidth, height: screenHeight} = Dimensions.get('window');
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -55,7 +55,7 @@ const HomeScreen = () => {
         <FlatList
           style={styles.pokemonList}
           data={searchList}
-          keyExtractor={item => item.id}
+          keyExtractor={pokemon => `pokemon-${pokemon.id}`}
           showsVerticalScrollIndicator={false}
           numColumns={3}
           renderItem={item => <PokemonListItem pokemon={item.item} />}
@@ -64,7 +64,7 @@ const HomeScreen = () => {
         <FlatList
           style={styles.pokemonList}
           data={pokemonList}
-          keyExtractor={pokemon => pokemon.id}
+          keyExtractor={pokemon => `pokemon-${pokemon.id}`}
           showsVerticalScrollIndicator={false}
           numColumns={3}
           renderItem={({item}) => <PokemonListItem pokemon={item} />}
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   },
   pokemonList: {
     paddingTop: 80,
-    maxHeight: 600,
+    paddingBottom: 80,
   },
   activityIndicator: {
     height: 100,

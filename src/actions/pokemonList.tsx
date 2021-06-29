@@ -11,6 +11,7 @@ import Fuse from 'fuse.js';
 import {PokemonListState} from '../interfaces/pokemonState';
 
 export const loadPokemonList = () => {
+  console.log('loadPokemonList');
   return async (dispatch: Dispatch, getState: () => RootState) => {
     const {pokemonList: state} = getState();
     const {data} = await pokemonApi.get<PokemonResponse>(state.nextPageUrl!);
@@ -24,8 +25,6 @@ export const loadPokemonList = () => {
 
 export const createFuseInstance = () => {
   return async (dispatch: Dispatch) => {
-    console.log('createFuseInstance');
-
     const {data} = await pokemonApi.get<PokemonResponse>(
       `${AppConfig.apiUrl}/pokemon?limit=50`,
     );
